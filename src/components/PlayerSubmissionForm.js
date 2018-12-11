@@ -17,13 +17,34 @@ class PlayerSubmissionForm extends Component {
     }
   }
 
+  onLineSubmit = (event) => {
+    event.preventDefault();
+
+    const { adj1, adj2, adv, noun1, noun2, verb } = this.state;
+    const newLine = `The ${adj1} ${noun1} ${adv} ${verb} the ${adj2} ${noun2}.`
+
+    this.props.onLineSubmitCallback(newLine);
+    this.setState({
+      adj1: '',
+      adj2: '',
+      adv: '',
+      noun1: '',
+      noun2: '',
+      verb: '',
+    });
+  }
+
+  onFieldChange = () => {
+
+  }
+
   render() {
 
     return (
       <div className="PlayerSubmissionForm">
         <h3>Player Submission Form for Player #{ this.props.player }</h3>
 
-        <form className="PlayerSubmissionForm__form" >
+        <form className="PlayerSubmissionForm__form" onSubmit={ this.onLineSubmit }>
 
           <div className="PlayerSubmissionForm__poem-inputs">
 
