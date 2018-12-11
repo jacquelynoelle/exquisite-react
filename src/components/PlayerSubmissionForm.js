@@ -21,7 +21,7 @@ class PlayerSubmissionForm extends Component {
 
     return (
       <div className="PlayerSubmissionForm">
-        <h3>Player Submission Form for Player #{ this.props.index }</h3>
+        <h3>Player Submission Form for Player #{ this.props.player }</h3>
 
         <form className="PlayerSubmissionForm__form" >
 
@@ -47,7 +47,7 @@ class PlayerSubmissionForm extends Component {
 
 PlayerSubmissionForm.propTypes = {
   fields: PropTypes.array.isRequired,
-  index: PropTypes.number.isRequired,
+  player: PropTypes.number.isRequired,
   onLineSubmitCallback: PropTypes.func.isRequired,
   isSubmitted: PropTypes.bool.isRequired,
 };
