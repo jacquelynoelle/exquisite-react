@@ -6,6 +6,15 @@ class PlayerSubmissionForm extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      adj1: '',
+      adj2: '',
+      adv: '',
+      noun1: '',
+      noun2: '',
+      verb: '',
+    }
   }
 
   render() {
