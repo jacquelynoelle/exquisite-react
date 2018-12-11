@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './PlayerSubmissionForm.css';
+import PropTypes from 'prop-types';
 
 class PlayerSubmissionForm extends Component {
 
@@ -34,5 +35,12 @@ class PlayerSubmissionForm extends Component {
     );
   }
 }
+
+PlayerSubmissionForm.propTypes = {
+  fields: PropTypes.array.isRequired,
+  index: PropTypes.number.isRequired,
+  onLineSubmitCallback: PropTypes.func.isRequired,
+  isSubmitted: PropTypes.bool.isRequired,
+};
 
 export default PlayerSubmissionForm;
