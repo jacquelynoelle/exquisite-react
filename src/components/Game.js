@@ -8,6 +8,24 @@ class Game extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      submissions: [],
+      lastLine: '',
+      isSubmitted: false,
+      index: 1,
+    }
+  }
+
+  submitLine = (newLine) => {
+    this.setState({ index: this.state.index + 1 });
+
+    const submissions = this.state.submissions;
+    submissions.push(newLine);
+    this.setState({
+      submissions,
+      lastLine: newLine,
+    });
   }
 
   render() {
@@ -32,7 +50,7 @@ class Game extends Component {
           { exampleFormat }
         </p>
 
-        <RecentSubmission />
+        <RecentSubmission lastLine={ this.state.lastLine }/>
 
         <PlayerSubmissionForm />
 
