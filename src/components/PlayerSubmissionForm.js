@@ -34,8 +34,15 @@ class PlayerSubmissionForm extends Component {
     });
   }
 
-  onFieldChange = () => {
+  onFieldChange = (event) => {
+    const updateState = {};
 
+    const fieldName = event.target.name;
+    const value = event.target.value;
+
+    updateState[fieldName] = value;
+
+    this.setState(updateState);
   }
 
   render() {
