@@ -45,6 +45,24 @@ class PlayerSubmissionForm extends Component {
     this.setState(updateState);
   }
 
+  generateFormFields = () => {
+    return ( this.props.fields.map( (field, i) => {
+      if (field.key) {
+        return ( <input
+          key={i}
+          placeholder={ field.placeholder }
+          type="text"
+          name={ field.key }
+          value={ this.state[field.key] }
+          className={ this.state[field.key] === "" ? "PlayerSubmissionForm__input--invalid" : "PlayerSubmissionForm__input"}
+          onChange={ this.onFieldChange }
+        />);
+      } else {
+        return field;
+      }
+    }));
+  }
+
   render() {
 
     return (
@@ -54,14 +72,7 @@ class PlayerSubmissionForm extends Component {
         <form className="PlayerSubmissionForm__form" onSubmit={ this.onLineSubmit }>
 
           <div className="PlayerSubmissionForm__poem-inputs">
-
-            {
-              // Put your form inputs here... We've put in one below as an example
-            }
-            <input
-              placeholder="hm..."
-              type="text" />
-
+            { this.generateFormFields() }
           </div>
 
           <div className="PlayerSubmissionForm__submit">
