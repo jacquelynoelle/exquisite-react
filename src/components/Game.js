@@ -28,6 +28,10 @@ class Game extends Component {
     });
   }
 
+  submitPoem = () => {
+    this.setState({ isSubmitted: true });
+  }
+
   render() {
 
     const exampleFormat = FIELDS.map((field) => {
@@ -50,11 +54,11 @@ class Game extends Component {
           { exampleFormat }
         </p>
 
-        <RecentSubmission lastLine={ this.state.lastLine } isSubmitted={ this.state.isSubmitted } />
+        <RecentSubmission lastLine={ this.state.lastLine } />
 
-        <PlayerSubmissionForm fields={ FIELDS } player={ this.state.player } onLineSubmitCallback={ this.submitLine } isSubmitted={ this.state.isSubmitted } />
+        <PlayerSubmissionForm fields={ FIELDS } player={ this.state.player } onLineSubmitCallback={ this.submitLine } />
 
-        <FinalPoem poem={ this.state.submissions } isSubmitted={ this.state.isSubmitted } />
+        <FinalPoem poem={ this.state.submissions } onPoemSubmitCallback={ this.submitPoem } isSubmitted={ this.state.isSubmitted }/>
 
       </div>
     );

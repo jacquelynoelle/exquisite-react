@@ -88,7 +88,6 @@ PlayerSubmissionForm.propTypes = {
   fields: PropTypes.array.isRequired,
   player: PropTypes.number.isRequired,
   onLineSubmitCallback: PropTypes.func.isRequired,
-  isSubmitted: PropTypes.bool.isRequired,
 };
 
 export default PlayerSubmissionForm;
